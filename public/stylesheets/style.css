@@ -17,6 +17,7 @@ body{
 
 a {
   color: #00B7FF;
+  outline: none !important;
 }
 
 .headline{
@@ -111,8 +112,8 @@ input.url-in::placeholder{
   justify-content: center;
 }
 .footer-icon{
-  height: 52px;
-  width: 52px;
+  height: 48px;
+  width: 48px;
   margin: 16px;
   margin-top: 0;
   stroke: #aaa;
