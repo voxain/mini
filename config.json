@@ -1,0 +1,6 @@
+{
+    "baseURL": "http://localhost:8151/",
+    "appPort": 8151,
+    "cooldown": 60, 
+    "expiration": 24
+}

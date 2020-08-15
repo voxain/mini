@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='icon' href='/images/favicon-24.png' />
+    <script src="/js/shorten.js"></script>
+  </head>
+  <body>
+    <section class="content">
+      <span class="headline"><%= title %></span><br>
+      <form onsubmit="event.preventDefault(); shortURL()">
+        <input tabindex="1" placeholder='Enter URL to shorten...' autofocus type="url" class="url-in" id="url-in"><br>
+        <span id="errorMessage"></span>
+        <button type="submit" tabindex="2" class="btn">Shorten URL</button>
+      </form>
+    </section>
+  </body>
+</html>

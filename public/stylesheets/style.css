@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Rubik&display=swap');@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Source+Sans+Pro&display=swap');
+
+body, html{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Rubik';
+  font-size: 20px;
+  color: #1c1d1f;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.headline{
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-size: 85px;
+  text-shadow: 5px 5px 0px rgba(0,0,0,.2);
+}
+
+.content{
+  text-align: center;
+}
+
+input.url-in{
+  text-align: center;
+  flex: 1;
+  margin: 30px;
+  border: none;
+  background: transparent;
+  width: 500px;
+  height: 30px;
+  font-family: 'Rubik';
+  font-size: 25px;
+  padding: 10px;
+  color: #1c1d1f;
+  border-bottom: 2px solid transparent;
+  transition: .2s ease;
+}
+input.url-in:focus{
+  outline: none;
+  border-bottom: 2px solid #1c1d1f;
+}
+input.url-in::placeholder{
+  color: #aaa;
+}
+
+#errorMessage{
+  display: none;
+}
+#errorMessage.error, #errorMessage.success{
+  display: block;
+}
+#errorMessage.error::after{
+  color: #e05e3d;
+}
+#errorMessage.success::after{
+  color: #5de03d;
+  content: "Link copied. Expires in 24h";
+}
+
+#errorMessage.invalidURL::after{
+  content: "Invalid URL provided";
+}
+#errorMessage.longURL::after{
+  content: "URLs must be below 1000 characters";
+}
+#errorMessage.limitReached::after{
+  content: "Too many requests. Try again later";
+}
+#errorMessage.status500L::after{
+  content: "Server error. Try again later.";
+}
+
+.btn{
+  border: none;
+  background: #1c1d1f;
+  font-family: 'Rubik';
+  font-size: 20px;
+  color: white;
+  padding: 38px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border: 2px solid #1c1d1f;
+  cursor: pointer;
+  transition: .2s ease;
+  margin: 30px;
+}
+.btn:focus, .btn:hover{
+  outline: none;
+  color: #1c1d1f;
+  background: transparent;
+}
