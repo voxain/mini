@@ -22,21 +22,25 @@ router.post('/shorten', function(req, res, next) {
   if (!validateURL(req.body.urlToShort)) return res.sendStatus(406);
 
   let remoteIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  console.log(lastRequest[remoteIP], (new Date() - lastRequest[remoteIP]) / 1000)
   if (lastRequest[remoteIP] && ((new Date() - lastRequest[remoteIP]) / 1000 < (config.cooldown || 60))) return res.sendStatus(429);
 
-  let urlID = getID();
-  lastRequest[remoteIP] = new Date();
-  
-  let currentShorts = require('./../shortened.json');
-  currentShorts[urlID] = {
-    longURL: req.body.urlToShort,
-    created: {
-      at: new Date(),
-      remoteIP
+  try{
+    let urlID = getID();
+    lastRequest[remoteIP] = new Date();
+    
+    let currentShorts = require('./../shortened.json');
+    currentShorts[urlID] = {
+      longURL: req.body.urlToShort,
+      created: {
+        at: new Date(),
+        remoteIP
+      }
     }
+    fs.writeFileSync('./shortened.json', JSON.stringify(currentShorts));
+  } catch(err){
+    console.log(err);
+    return res.sendStatus(500);
   }
-  fs.writeFileSync('./shortened.json', JSON.stringify(currentShorts))
 
   res.set('Content-Type', 'application/json')
   res.status(200).send({
