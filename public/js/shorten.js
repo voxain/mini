@@ -41,3 +41,16 @@ function parseNewURL(short){
     navigator.clipboard.writeText(short.url)
     qs('#url-in').value = short.url;
 }
+
+if(window.localStorage.getItem('darkTheme')) qs('#dark-theme').href='/stylesheets/dark.css';
+
+function switchDark(){
+    if(qs('#dark-theme').href.endsWith('/stylesheets/dark.css')){
+        qs('#dark-theme').href='';
+        window.localStorage.removeItem('darkTheme');
+    }
+    else {
+        qs('#dark-theme').href='/stylesheets/dark.css';
+        window.localStorage.setItem('darkTheme', true);
+    }
+}

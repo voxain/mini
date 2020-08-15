@@ -1,0 +1,32 @@
+body, html{
+    background: #1c1d1f;
+    color: #eef;
+}
+.headline{
+  text-shadow: 5px 5px 0px rgba(255,255,255,.2);
+}
+
+input.url-in{
+    color: #eef;
+}
+input.url-in:focus{
+    border-bottom: 2px solid #eef;
+}
+input.url-in::placeholder{
+    color: #8c8d8f;
+}
+.btn{
+    color: #eef;
+    background: transparent;
+    border: 2px solid #eef;
+}
+.btn:focus, .btn:hover{
+  background: #eef;
+  color: #1c1d1f;
+}
+.footer-icon{
+  stroke: #8c8d8f;
+}
+.footer-icon:hover{
+  stroke: #eef;
+}

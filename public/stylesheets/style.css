@@ -99,3 +99,27 @@ input.url-in::placeholder{
   color: #1c1d1f;
   background: transparent;
 }
+
+.footer{
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.footer-icon{
+  height: 52px;
+  width: 52px;
+  margin: 16px;
+  margin-top: 0;
+  stroke: #aaa;
+  cursor: pointer;
+  transition: .2s ease;
+}
+.footer-icon:hover{
+  stroke: #1c1d1f;
+  transform: scale(1.1);
+}
