@@ -18,35 +18,36 @@ router.get('/*', function(req, res, next) {
 
 /* POST API shorten. */
 router.post('/shorten', function(req, res, next) {
-  if (req.body.urlToShort.length >= 1000) return res.sendStatus(413);
-  if (!validateURL(req.body.urlToShort)) return res.sendStatus(406);
-
-  let remoteIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  if (lastRequest[remoteIP] && ((new Date() - lastRequest[remoteIP]) / 1000 < (config.cooldown || 60))) return res.sendStatus(429);
-
   try{
-    let urlID = getID();
-    lastRequest[remoteIP] = new Date();
-    
-    let currentShorts = require('./../shortened.json');
-    currentShorts[urlID] = {
-      longURL: req.body.urlToShort,
-      created: {
-        at: new Date(),
-        remoteIP
+    if (req.body.urlToShort.length >= 1000) return res.sendStatus(413);
+    if (!validateURL(req.body.urlToShort)) return res.sendStatus(406);
+
+    let remoteIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    if (lastRequest[remoteIP] && ((new Date() - lastRequest[remoteIP]) / 1000 < (config.cooldown || 60))) return res.sendStatus(429);
+
+      let urlID = getID();
+      lastRequest[remoteIP] = new Date();
+      
+      let currentShorts = require('./../shortened.json');
+      currentShorts[urlID] = {
+        longURL: req.body.urlToShort,
+        created: {
+          at: new Date(),
+          remoteIP
+        }
       }
-    }
-    fs.writeFileSync('./shortened.json', JSON.stringify(currentShorts));
+      fs.writeFileSync('./shortened.json', JSON.stringify(currentShorts));
+    
+
+    res.set('Content-Type', 'application/json')
+    res.status(200).send({
+      id: urlID,
+      url: config.baseURL + urlID
+    });
   } catch(err){
     console.log(err);
     return res.sendStatus(500);
   }
-
-  res.set('Content-Type', 'application/json')
-  res.status(200).send({
-    id: urlID,
-    url: config.baseURL + urlID
-  });
 });
 
 module.exports = router;
