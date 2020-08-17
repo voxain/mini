@@ -12,7 +12,10 @@ router.get('/', function(req, res, next) {
 /* GET forwarding page. */
 router.get('/*', function(req, res, next) {
   let currentShorts = require('./../shortened.json');
-  if(currentShorts[req.params[0]]) return res.redirect(currentShorts[req.params[0]].longURL);
+  if(currentShorts[req.params[0]]) 
+    return res
+      .set("Cache-Control", `max-age=${config.expiration * 3600},public`)
+      .redirect(currentShorts[req.params[0]].longURL, 301);
   return res.sendStatus(404)
 });
 
