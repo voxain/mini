@@ -1,14 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const fs = require('fs');
 
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 const { config } = require('process');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,12 +23,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -42,9 +42,13 @@ module.exports = app;
 
 // Clear old links
 setInterval(() => {
-  let currentShorts = require('./shortened.json');
-  Object.entries(currentShorts).forEach(link => {
-    if((new Date() - new Date(link[1].created.at))/1000/60/60 > config.expiration) delete currentShorts[link[0]];
-  })
+  const currentShorts = require('./shortened.json');
+  Object.entries(currentShorts).forEach((link) => {
+    if (
+      (new Date() - new Date(link[1].created.at)) / 1000 / 60 / 60 >
+      config.expiration
+    )
+      delete currentShorts[link[0]];
+  });
   fs.writeFileSync('shortened.json', JSON.stringify(currentShorts));
 }, 1000 * 60);
