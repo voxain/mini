@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var config = require('./../config.json')
+const express = require('express');
+const router = express.Router();
+const config = require('./../config.json')
 const fs = require('fs');
-let lastRequest = {};
+const lastRequest = {};
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,13 +25,13 @@ router.post('/shorten', function(req, res, next) {
     if (req.body.urlToShort.length >= 1000) return res.sendStatus(413);
     if (!validateURL(req.body.urlToShort)) return res.sendStatus(406);
 
-    let remoteIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const remoteIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     if (lastRequest[remoteIP] && ((new Date() - lastRequest[remoteIP]) / 1000 < (config.cooldown || 60))) return res.sendStatus(429);
 
-      let urlID = getID();
+      const urlID = getID();
       lastRequest[remoteIP] = new Date();
       
-      let currentShorts = require('./../shortened.json');
+      const currentShorts = require('./../shortened.json');
       currentShorts[urlID] = {
         longURL: req.body.urlToShort,
         created: {
@@ -56,7 +56,7 @@ router.post('/shorten', function(req, res, next) {
 module.exports = router;
 
 function validateURL(inp) { 
-  let urlReg = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ // thanks to https://urlregex.com
+  const urlReg = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ // thanks to https://urlregex.com
   return urlReg.test(inp);
 }
 

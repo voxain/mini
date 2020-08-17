@@ -1,7 +1,7 @@
-let qs = q => document.querySelector(q);
+const qs = q => document.querySelector(q);
 
 function shortURL() {
-    let urlToShort = qs('#url-in').value;
+    const urlToShort = qs('#url-in').value;
     fetch('/shorten', {
         method: 'POST',
         headers: {
