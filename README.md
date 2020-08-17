@@ -1,4 +1,6 @@
-# mini
+<p align="center">
+  <img src="https://github.com/rmcproductions/mini/blob/master/public/images/Unbenannt.png?raw=true">
+</p>
 
 A mini URL shortener which I did as a project for fun.
 
