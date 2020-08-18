@@ -9,6 +9,11 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'mini' });
 });
 
+/* GET forks page. */
+router.get('/forks', function (req, res, next) {
+  res.render('forks', { title: 'mini - Forks' });
+});
+
 /* GET forwarding page. */
 router.get('/*', function (req, res, next) {
   let currentShorts = require('./../shortened.json');
