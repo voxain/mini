@@ -19,4 +19,4 @@ COPY . .
 
 # Expose port 8151 and run "npm bin/www" to start the app
 EXPOSE 8151
-CMD ["npm", "bin/www"]
+CMD ["node", "bin/www"]
