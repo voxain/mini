@@ -6,3 +6,6 @@
 
 node_modules
 npm-debug.log
+
+# Ignore config.json so it doesn't get added to the image / container
+config.json
