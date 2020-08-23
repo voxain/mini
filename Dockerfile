@@ -12,7 +12,7 @@ WORKDIR /opt/mini-wd
 
 # Copy package.json, package-lock.json to workdir & run npm install to install all dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # Copy all files to workdir
 COPY . .
