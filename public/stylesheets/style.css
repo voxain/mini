@@ -14,7 +14,27 @@ body{
   align-items: center;
   font-family: 'Rubik';
   font-size: 20px;
-  color: #1c1d1f;
+  --primary-color: #1c1d1f;
+  --background-color: transparent;
+  --headline-shadow-color: rgba(0,0,0,.2);
+  --placeholder-color: #aaa;
+  --btn-color: #fff;
+  --btn-background-color: #1c1d1f;
+  --btn-focus-background-color: transparent;
+  --footer-icon-stroke-color: #aaa;
+  color: var(--primary-color);
+  background: var(--background-color);
+}
+
+body.dark {
+  --primary-color: #eef;
+  --background-color: #1c1d1f;
+  --headline-shadow: rgba(255,255,255,.2);
+  --placeholder-color: #8c8d8f;
+  --btn-color: #eef;
+  --btn-background-color: transparent;
+  --btn-focus-background-color: #eef;
+  --footer-icon-stroke-color: #8c8d8f;
 }
 
 a {
@@ -26,12 +46,13 @@ a {
   font-family: 'Poppins';
   font-weight: bold;
   font-size: 85px;
-  text-shadow: 5px 5px 0px rgba(0,0,0,.2);
+  text-shadow: 5px 5px 0px var(--headline-shadow-color);
 }
 
 .content{
   text-align: center;
 }
+
 .content.cards{
   display: flex;
   flex: 1;
@@ -52,27 +73,32 @@ input.url-in{
   font-family: 'Rubik';
   font-size: 25px;
   padding: 10px;
-  color: #1c1d1f;
+  color: var(--primary-color);
   border-bottom: 2px solid transparent;
   transition: .2s ease;
 }
+
 input.url-in:focus{
   outline: none;
-  border-bottom: 2px solid #1c1d1f;
+  border-bottom: 2px solid var(--primary-color);
 }
+
 input.url-in::placeholder{
-  color: #aaa;
+  color: var(--placeholder-color);
 }
 
 #errorMessage{
   display: none;
 }
+
 #errorMessage.error, #errorMessage.success{
   display: block;
 }
+
 #errorMessage.error::after{
   color: #e05e3d;
 }
+
 #errorMessage.success::after{
   color: #5de03d;
   content: "Link copied. Expires in 24h";
@@ -81,35 +107,40 @@ input.url-in::placeholder{
 #errorMessage.invalidURL::after{
   content: "Invalid URL provided";
 }
+
 #errorMessage.longURL::after{
   content: "URLs must be below 1000 characters";
 }
+
 #errorMessage.limitReached::after{
   content: "Too many requests. Try again later";
 }
+
 #errorMessage.status500L::after{
   content: "Server error. Try again later.";
 }
 
 .btn{
   border: none;
-  background: #1c1d1f;
+  background: var(--btn-background-color);
   font-family: 'Rubik';
   font-size: 20px;
-  color: white;
+  color: var(--btn-color);
   padding: 38px;
   padding-bottom: 15px;
   padding-top: 15px;
-  border: 2px solid #1c1d1f;
+  border: 2px solid var(--primary-color);
   cursor: pointer;
   transition: .2s ease;
   margin: 30px;
 }
+
 .btn:focus, .btn:hover{
   outline: none;
   color: #1c1d1f;
-  background: transparent;
+  background: var(--btn-focus-background-color);
 }
+
 .btn.fullsize{
   box-sizing: border-box;
   width: calc(100% - 60px);
@@ -125,17 +156,22 @@ input.url-in::placeholder{
   align-items: flex-start;
   justify-content: center;
 }
+
 .footer-icon{
   height: 48px;
   width: 48px;
   margin: 16px;
   margin-top: 0;
-  stroke: #aaa;
+  stroke: var(--footer-icon-stroke-color);
   cursor: pointer;
+}
+
+.footer-icon > svg {
   transition: .2s ease;
 }
-.footer-icon:hover, a:focus .footer-icon{
-  stroke: #1c1d1f;
+
+.footer-icon:hover > svg{
+  stroke: var(--primary-color);
   transform: scale(1.1);
 }
 
@@ -150,7 +186,12 @@ input.url-in::placeholder{
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   transition: .5s ease;
+  --btn-background-color: #1c1d1f !important;
+  --btn-focus-background-color: transparent !important;
+  --primary-color: #1c1d1f !important;
+
 }
+
 .card:hover, .card:focus{
   transform: scale(1.02);
   outline-color: #1c1d1f;
@@ -162,7 +203,9 @@ input.url-in::placeholder{
   clip-path: polygon(0 0, 370px 0, 370px 220px, 0 150px);
   background: url('/images/zekro-mega-logo.svg');
 }
+
 .card-header.rmc-mini{ background: url('/images/rmc-mini-logo.svg') }
+
 .card-header.zekro-mega{ background: url('/images/zekro-mega-logo.svg') }
 
 .card-body{
@@ -170,7 +213,9 @@ input.url-in::placeholder{
   box-sizing: border-box;
   padding: 30px;
   text-align: left;
+  color: #1c1d1f;
 }
+
 .card-footer{ 
   grid-area: 3 / 1 / 4 / 2; 
 }
