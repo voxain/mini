@@ -1,14 +1,13 @@
 <p align="center">
-  <img src="https://github.com/rmcproductions/mini/blob/master/public/images/Unbenannt.png?raw=true">
+  <img src="https://github.com/rmcproductions/mini/blob/master/public/images/logo.png?raw=true">
+  A mini URL shortener which I did as a project for fun.
 </p>
-
-A mini URL shortener which I did as a project for fun.
 
 ## How to set up
 1. Clone or download the repo.
 2. Run `npm i` in the repo folder.
 3. Change the config to your needs (see section below).
-4. Run `node bin/www` and enjoy!
+4. Run `npm start` and enjoy!
 
 ## Config
 Alter the values in the config.json. These are the options you can set:

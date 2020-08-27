@@ -3,9 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link id="dark-theme" rel="stylesheet" href="" />
     <link rel="icon" href="/images/favicon-24.png" />
-    <script src="/js/shorten.js"></script>
   </head>
   <body>
     <section class="content">
@@ -52,24 +50,20 @@
         </div>
       </a>
 
-      <a 
-        title="View cool forks of this project" 
-        tabindex="4" 
-        href="/forks"
-      >
+      <a title="View cool forks of this project" tabindex="4" href="/forks">
         <div class="footer-icon">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            class="icon icon-tabler icon-tabler-git-fork" 
-            width="48" 
-            height="48" 
-            viewBox="0 0 24 24" 
-            stroke-width="1" 
-            fill="none" 
-            stroke-linecap="round" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-git-fork"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            stroke-width="1"
+            fill="none"
+            stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path stroke="none" d="M0 0h24v24H0z"/>
+            <path stroke="none" d="M0 0h24v24H0z" />
             <circle cx="12" cy="18" r="2" />
             <circle cx="7" cy="6" r="2" />
             <circle cx="17" cy="6" r="2" />
@@ -79,11 +73,7 @@
         </div>
       </a>
 
-      <a
-        title="Toggle dark mode"
-        tabindex="5" 
-        href="javascript:switchDark()"
-      >
+      <a title="Toggle dark mode" tabindex="5" href="javascript:switchDark()">
         <div class="footer-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -106,5 +96,6 @@
         </div>
       </a>
     </div>
+    <script src="/js/main.js"></script>
   </body>
 </html>
