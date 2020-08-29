@@ -30,8 +30,7 @@ const shortURL = () => {
 
 const switchDark = (init = false, preferDark = false) => {
   const isDark = window.localStorage.getItem('darkTheme');
-  !init && console.log(`switching theme to ${!isDark ? 'dark' : 'light'}`);
-  init && console.log(`prefers dark theme: ${preferDark}`)
+  !init && !console.log(`switching theme to ${!isDark ? 'dark' : 'light'}`) || console.log(`prefers dark theme: ${preferDark}`)
   if (preferDark || !!init == !!isDark) {
     document.body.classList.add('dark');
     window.localStorage.setItem('darkTheme', true);
