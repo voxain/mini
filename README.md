@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/rmcproductions/mini/blob/master/public/images/logo.png?raw=true">
+  <img src="https://github.com/rmcproductions/mini/blob/master/public/images/logo.png?raw=true"><br>
   A mini URL shortener which I did as a project for fun.
 </p>
 
