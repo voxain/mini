@@ -22,21 +22,22 @@ const shortURL = () => {
         break;
       default:
         $('#errorMessage').classList = 'success';
-        response.json().then(({ url }) => navigator.clipboard.writeText($('#url-in').value = url));
+        response.json().then(({ url }) => navigator.clipboard.writeText(($('#url-in').value = url)));
     }
     $('#url-in').focus();
   });
-}
+};
 
-const switchDark = (init = false) => {
-  const item = window.localStorage.getItem('darkTheme') || window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (!!init === !!item) {
+const switchDark = (init = false, preferDark = false) => {
+  const isDark = window.localStorage.getItem('darkTheme');
+  !init && !console.log(`switching theme to ${!isDark ? 'dark' : 'light'}`) || console.log(`prefers dark theme: ${preferDark}`)
+  if (preferDark || !!init == !!isDark) {
     document.body.classList.add('dark');
-    !init && window.localStorage.setItem('darkTheme', true);
+    window.localStorage.setItem('darkTheme', true);
   } else {
     document.body.classList.remove('dark');
-    !init && window.localStorage.removeItem('darkTheme');
+    window.localStorage.removeItem('darkTheme');
   }
-}
+};
 
-switchDark(true);
+switchDark(true, window.matchMedia('(prefers-color-scheme: dark)').matches);

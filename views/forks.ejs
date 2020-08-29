@@ -8,55 +8,91 @@
   <body>
     <section class="content cards">
       <div tabindex="1" class="card">
-          <div class="card-header rmc-mini"></div>
-          <div class="card-body">
-            The original mini URL shortener - Made in one night!
-          </div>
-          <div class="card-footer">
-            <a 
-              href="https://mini.rmcprod.me"
-              target="_blank"
-            >
-              <button tabindex="2" class="btn fullsize">Visit mini</button>
-            </a>
-          </div>
+        <div class="card-header rmc-mini"></div>
+        <div class="card-body">
+          The original mini URL shortener - Made in one night!
+          <small style="opacity: 0.5">And a few days.</small>
+        </div>
+        <div class="card-footer">
+          <a href="https://mini.rmcprod.me" target="_blank">
+            <button tabindex="2" class="btn fullsize">Visit mini</button>
+          </a>
+        </div>
       </div>
 
-      <div tabindex="3" class="card">
-          <div class="card-header zekro-mega"></div>
-          <div class="card-body">
-            Who even needs URL Shorteners when you can have chad mega links?<br><br>
-            <a href="https://github.com/zekroTJA" target="_blank">zekroTJA</a> made that possible by transforming mini into mega!
-          </div>
-          <div class="card-footer">
-            <a 
-              href="https://mega.zekro.de"
-              target="_blank"
-            >
-              <button tabindex="4" class="btn fullsize">Visit mega</button>
-            </a>
-          </div>
+      <div tabindex="2" class="card">
+        <div class="card-header zekro-mega"></div>
+        <div class="card-body">
+          Who even needs URL Shorteners when you can have chad mega links?<br /><br />
+          <a href="https://github.com/zekroTJA" target="_blank">zekroTJA</a>
+          made that possible by transforming mini into mega!
+        </div>
+        <div class="card-footer">
+          <a href="https://mega.zekro.de" target="_blank">
+            <button tabindex="4" class="btn fullsize">Visit mega</button>
+          </a>
+        </div>
       </div>
 
       <div class="footer">
         <a
-          tabindex="5"
-          href="/"
-        >
+          title="View source"
+          tabindex="3"
+          target="_blank"
+          href="https://github.com/rmcproductions/mini">
           <div class="footer-icon">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              class="icon icon-tabler icon-tabler-chevron-left" 
-              width="48" h
-              eight="48" 
-              viewBox="0 0 24 24" 
-              stroke-width="1" 
-              fill="none" 
-              stroke-linecap="round" 
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-github"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              stroke-width="1"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <path
+                d="M9 19c-4.286 1.35-4.286-2.55-6-3m12 5v-3.5c0-1 .099-1.405-.5-2 2.791-.3 5.5-1.366 5.5-6.04a4.567 4.567 0 0 0 -1.333 -3.21 4.192 4.192 0 00-.08-3.227s-1.05-.3-3.476 1.267a12.334 12.334 0 0 0 -6.222 0C6.462 2.723 5.413 3.023 5.413 3.023a4.192 4.192 0 0 0 -.08 3.227A4.566 4.566 0 004 9.486c0 4.64 2.709 5.68 5.5 6.014-.591.589-.56 1.183-.5 2V21"
+              />
+            </svg>
+          </div>
+        </a>
+        <a title="Go Back" tabindex="4" href="/">
+          <div class="footer-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-chevron-left"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              stroke-width="1"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" />
               <polyline points="15 6 9 12 15 18" />
+            </svg>
+          </div>
+        </a>
+        <a title="Toggle dark mode" tabindex="5" href="javascript:switchDark()">
+          <div class="footer-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brightness"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              stroke-width="1"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <circle cx="12" cy="12" r="9" />
+              <line x1="12" y1="3" x2="12" y2="21" />
+              <path d="M12 9l4.65 -4.65" />
+              <path d="M12 14.3l7.37 -7.37" />
+              <path d="M12 19.6l8.85 -8.85" />
             </svg>
           </div>
         </a>
