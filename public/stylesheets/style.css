@@ -89,7 +89,6 @@ input.url-in:invalid{
   border-bottom: 2px solid var(--error-color);
 }
 
-
 input.url-in::placeholder{
   color: var(--placeholder-color);
 }
