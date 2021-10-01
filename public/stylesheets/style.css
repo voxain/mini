@@ -15,6 +15,7 @@ body{
   font-family: 'Rubik';
   font-size: 20px;
   --primary-color: #1c1d1f;
+  --error-color: #E74C3C;
   --background-color: transparent;
   --headline-shadow-color: rgba(0,0,0,.2);
   --placeholder-color: #aaa;
@@ -81,6 +82,11 @@ input.url-in{
 input.url-in:focus{
   outline: none;
   border-bottom: 2px solid var(--primary-color);
+}
+
+input.url-in:invalid{
+  outline: none;
+  border-bottom: 2px solid var(--error-color);
 }
 
 input.url-in::placeholder{
