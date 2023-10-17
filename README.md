@@ -3,6 +3,10 @@
   A mini URL shortener which I did as a project for fun.
 </p>
 
+![Status - Unmaintained](https://img.shields.io/badge/Status-Unmaintained-critical?style=for-the-badge)
+
+⚠️ Since this is a fun little weekend-project, it is not actively maintained and not intended for production use. There might be security vulnerabilities which I am not fixing. Host at your own risk.
+
 ## How to set up
 1. Clone or download the repo.
 2. Run `npm i` in the repo folder.
